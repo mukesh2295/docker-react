@@ -1,0 +1,9 @@
+sudo:require
+service:
+  - docker
+
+before-install:
+  - docker build -t mukeshsopra/docker-react -f Dockerfile.dev
+
+script:
+  - docker run -e CI=true mukeshsopra/docker-react npm run test
